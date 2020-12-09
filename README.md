@@ -1,8 +1,7 @@
 <h1 align="center">Welcome to ella-app 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
-  <img src="https://img.shields.io/badge/npm-%3E%3D5.5.0-blue.svg" />
-  <img src="https://img.shields.io/badge/node-%3E%3D9.3.0-blue.svg" />
+  <img src="https://img.shields.io/badge/jdk-%3E%3D%208-red" />
   <a href="https://github.com/bschorn/ella-app#readme.md" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
@@ -20,7 +19,7 @@
 
 ## Prerequisites
 
-- jdk 8 or greater
+ <img src="https://img.shields.io/badge/jdk-%3E%3D%208-red" />
 
 ## Author
 
@@ -40,7 +39,7 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-Copyright © 2020 [Bryan Schorn](https://github.com/bschorn).<br />
+Copyright © 2020 [Bryan Schorn](https://github.com/bschorn). <br>
 This project is [MIT](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE) licensed.
 
 ***

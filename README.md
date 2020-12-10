@@ -13,9 +13,12 @@
   </a>
 </p>
 
-> Ella App is a collection of interfaces that may be utilized for implementing a Hexagonal Architecture (Ports and Adapters Architecture).
+> Ella App is a collection of interfaces that may be utilized for implementing a Ports and Adapters Architecture.
+> The diagram below shows how it may look if the underlying implementation was AWS. The App would only interact with 
+> Ella App interfaces and would be unaware of the existence AWS. The App would be not be bound to the technology 
+> selection of the implementations.
 
-### Diagram
+#### Diagram
 <img alt="Diagram" src="https://github.com/bschorn/ella-app/blob/master/ella-app.svg" />
 
 ### 🏠 [Homepage](https://github.com/bschorn/ella-app)

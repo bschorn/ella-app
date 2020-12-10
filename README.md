@@ -16,7 +16,7 @@
 > Ella App is a collection of interfaces that may be utilized for implementing a Hexagonal Architecture (Ports and Adapters Architecture).
 
 ### Diagram
-[Diagram](https://github.com/bschorn/ella-app/blob/master/ella-app.png)
+<img alt="Diagram" src="https://github.com/bschorn/ella-app/blob/master/ella-app.svg" />
 
 ### 🏠 [Homepage](https://github.com/bschorn/ella-app)
 

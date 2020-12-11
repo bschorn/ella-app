@@ -1,4 +1,4 @@
 package org.schorn.ella.app.file;
 
-public interface IAppFile {
+public interface IAppRead {
 }

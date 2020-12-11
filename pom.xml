@@ -7,15 +7,15 @@
     <artifactId>parent</artifactId>
     <version>0.0.1</version>
     <modules>
-        <module>ella-app-pubsub</module>
-        <module>ella-app-queue</module>
-        <module>ella-app-query</module>
-        <module>ella-app-service</module>
-        <module>ella-app-persist</module>
         <module>ella-app-cache</module>
-        <module>ella-app-file</module>
         <module>ella-app-core</module>
+        <module>ella-app-file</module>
+        <module>ella-app-persist</module>
+        <module>ella-app-pubsub</module>
+        <module>ella-app-query</module>
+        <module>ella-app-queue</module>
         <module>ella-app-search</module>
+        <module>ella-app-service</module>
     </modules>
     <packaging>pom</packaging>
     <name>ella-app</name>

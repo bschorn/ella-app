@@ -5,4 +5,6 @@ import org.schorn.ella.app.meta.IAppMeta;
 public interface IAppData {
 
     IAppMeta getMeta();
+
+
 }

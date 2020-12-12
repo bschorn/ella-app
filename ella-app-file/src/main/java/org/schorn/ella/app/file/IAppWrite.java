@@ -8,7 +8,7 @@ import java.net.URI;
 
 public interface IAppWrite<T> {
 
-    IAppAccess getAccess();
+    IAppAccess getAccess(IAppKey key);
 
     IAppReceipt write(URI uri, T t);
     IAppReceipt write(IAppKey key, T t);

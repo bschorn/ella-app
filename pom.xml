@@ -16,6 +16,7 @@
         <module>ella-app-queue</module>
         <module>ella-app-search</module>
         <module>ella-app-service</module>
+        <module>ella-app-commitlog</module>
     </modules>
     <packaging>pom</packaging>
     <name>ella-app</name>

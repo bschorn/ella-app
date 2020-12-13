@@ -3,12 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.schorn.app</groupId>
+    <groupId>org.schorn.ella.app</groupId>
     <artifactId>parent</artifactId>
     <version>0.0.1</version>
     <modules>
-        <module>ella-app-cache</module>
+        <module>ella-app-injector</module>
         <module>ella-app-core</module>
+        <module>ella-app-cache</module>
         <module>ella-app-file</module>
         <module>ella-app-persist</module>
         <module>ella-app-pubsub</module>

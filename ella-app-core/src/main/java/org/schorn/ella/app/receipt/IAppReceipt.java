@@ -11,5 +11,4 @@ public interface IAppReceipt {
      * @throws Exception
      */
     void throwException() throws Exception;
-    boolean hasException();
 }

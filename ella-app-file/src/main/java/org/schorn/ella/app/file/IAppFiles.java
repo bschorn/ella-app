@@ -10,20 +10,23 @@ import java.util.stream.Stream;
  *
  */
 public interface IAppFiles {
+    Path createPath(String...paths) throws Exception;
+    byte[] readAllBytes(Path path);
+    List<String> readAllLines(Path path);
+    List<String> readAllLines(Path path, Charset cs);
+    Path write(Path path, byte[] bytes);
+
+    /* TODO
     boolean isDirectory(Path path);
     boolean isReadable(Path path);
     boolean isWritable(Path path);
     Stream<String> lines(Path path);
     Stream<String> lines(Path path, Charset cs);
     Stream<Path> list(Path dir);
-    byte[] readAllBytes(Path path);
-    List<String> readAllLines(Path path);
-    List<String> readAllLines(Path path, Charset cs);
     long size(Path path);
-    Path write(Path path, byte[] bytes);
     Path write(Path path, Iterable<? extends CharSequence> lines, Charset cs, OpenOption... options);
     Path write(Path path, Iterable<? extends CharSequence> lines, OpenOption... options);
-
+    */
 
     /**
      *
@@ -35,32 +38,7 @@ public interface IAppFiles {
     class DummyImpl implements IAppFiles {
 
         @Override
-        public boolean isDirectory(Path path) {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public boolean isReadable(Path path) {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public boolean isWritable(Path path) {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public Stream<String> lines(Path path) {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public Stream<String> lines(Path path, Charset cs) {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public Stream<Path> list(Path dir) {
+        public Path createPath(String... paths) throws Exception {
             throw new UnsupportedOperationException();
         }
 
@@ -80,23 +58,6 @@ public interface IAppFiles {
         }
 
         @Override
-        public long size(Path path) {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public Path write(Path path, byte[] bytes) {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public Path write(Path path, Iterable<? extends CharSequence> lines, Charset cs, OpenOption... options) {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public Path write(Path path, Iterable<? extends CharSequence> lines, OpenOption... options) {
-            throw new UnsupportedOperationException();
-        }
+        public Path write(Path path, byte[] bytes) { throw new UnsupportedOperationException(); }
     }
 }

@@ -1,14 +1,10 @@
-package org.schorn.ella.app.injector;
+package org.schorn.ella.app.ioc;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * My $0.10 DependencyInjectionFramework
- */
-public class DependencyInjectionFramework {
-
-    static private final Logger LGR = LoggerFactory.getLogger(DependencyInjectionFramework.class);
+public class DependencyInjection {
+    static private final Logger LGR = LoggerFactory.getLogger(DependencyInjection.class);
 
     static public <T> T get(Class<T> classOfT, T dummy) {
         try {
@@ -31,4 +27,5 @@ public class DependencyInjectionFramework {
         }
         return dummy;
     }
+
 }

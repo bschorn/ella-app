@@ -7,7 +7,6 @@
     <artifactId>ella-app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <modules>
-        <module>ella-app-injector</module>
         <module>ella-app-core</module>
         <module>ella-app-cache</module>
         <module>ella-app-file</module>

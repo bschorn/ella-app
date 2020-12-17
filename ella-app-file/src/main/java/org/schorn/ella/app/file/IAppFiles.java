@@ -16,6 +16,7 @@ public interface IAppFiles {
     List<String> readAllLines(Path path, Charset cs);
     Path write(Path path, byte[] bytes);
 
+
     /* TODO
     boolean isDirectory(Path path);
     boolean isReadable(Path path);

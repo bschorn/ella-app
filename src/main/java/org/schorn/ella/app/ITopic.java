@@ -2,31 +2,63 @@ package org.schorn.ella.app;
 
 public interface ITopic {
 
-    PublishResponse publish(PublishRequest publishRequest);
-    SubscribeResponse subscribe(SubscribeRequest subscribeRequest);
+    IPublishResponse publish(PublishRequest publishRequest);
+    ISubscribeResponse subscribe(SubscribeRequest subscribeRequest);
 
+    /**
+     *
+     */
     class PublishRequest implements IRequest {
+        public static PublishRequest.Builder builder() {
+            return new Builder();
+        }
+        private PublishRequest(Builder builder) {
 
-    }
-    class PublishResponse implements IResponse {
+        }
+        static class Builder implements IRequestBuilder<PublishRequest> {
 
+            @Override
+            public PublishRequest build() {
+                return new PublishRequest(this);
+            }
+        }
     }
+    interface IPublishResponse extends IResponse.ISyncResponse {
+    }
+
+    /**
+     *
+     */
     class SubscribeRequest implements IRequest {
+        public static SubscribeRequest.Builder builder() {
+            return new Builder();
+        }
+        private SubscribeRequest(Builder builder) {
 
+        }
+        static class Builder implements IRequestBuilder<SubscribeRequest> {
+
+            @Override
+            public SubscribeRequest build() {
+                return new SubscribeRequest(this);
+            }
+        }
     }
-    class SubscribeResponse implements IResponse {
-
+    interface ISubscribeResponse extends IResponse.IAsyncResponse {
     }
 
+    /**
+     *
+     */
     class Default implements ITopic {
 
         @Override
-        public PublishResponse publish(PublishRequest publishRequest) {
+        public IPublishResponse publish(PublishRequest publishRequest) {
             throw new UnsupportedOperationException();
         }
 
         @Override
-        public SubscribeResponse subscribe(SubscribeRequest subscribeRequest) {
+        public ISubscribeResponse subscribe(SubscribeRequest subscribeRequest) {
             throw new UnsupportedOperationException();
         }
     }

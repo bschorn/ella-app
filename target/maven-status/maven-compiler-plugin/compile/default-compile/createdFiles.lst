@@ -5,6 +5,7 @@ org\schorn\ella\app\ICommitLog$AsyncTailRequest.class
 org\schorn\ella\app\IDBMS$AsyncPersistRequest$Builder.class
 org\schorn\ella\app\IDBMS$IPersistResponse.class
 org\schorn\ella\app\IDBMS$PersistRequest$Builder.class
+org\schorn\ella\app\IFile$Format.class
 org\schorn\ella\app\IFile$WriteRequest.class
 org\schorn\ella\app\IService$ServiceRequest.class
 org\schorn\ella\app\ICommitLog$AppendRequest$Builder.class
@@ -30,7 +31,6 @@ org\schorn\ella\app\ISearch$UploadRequest$Builder.class
 org\schorn\ella\app\ICommitLog$IAsyncTailResponse.class
 org\schorn\ella\app\ICommitLog$IAppendResponse.class
 org\schorn\ella\app\ICache$IAsyncGetResponse.class
-org\schorn\ella\app\IFile$AsyncReadRequest$Builder.class
 org\schorn\ella\app\ICache$ISetResponse.class
 org\schorn\ella\app\IResponse.class
 org\schorn\ella\app\ITopic$PublishRequest$Builder.class
@@ -39,6 +39,7 @@ org\schorn\ella\app\IResponse$ISyncResponse.class
 org\schorn\ella\app\IService$Default.class
 org\schorn\ella\app\IService$AsyncServiceRequest$Builder.class
 org\schorn\ella\app\IService.class
+org\schorn\ella\app\IRequest$IAsyncRequest.class
 org\schorn\ella\app\ICache$IAsyncSetResponse.class
 org\schorn\ella\app\IFile$WriteRequest$Builder.class
 org\schorn\ella\app\ICommitLog$AppendRequest.class
@@ -46,6 +47,7 @@ org\schorn\ella\app\IService$ServiceRequest$Builder.class
 org\schorn\ella\app\ITopic$PublishRequest.class
 org\schorn\ella\app\IDBMS$PersistRequest.class
 org\schorn\ella\app\IDBMS.class
+org\schorn\ella\app\IFile$IAsyncWriteResponse.class
 org\schorn\ella\app\ICache.class
 org\schorn\ella\app\ICache$AsyncSetRequest.class
 org\schorn\ella\app\ICache$IGetResponse.class
@@ -66,7 +68,6 @@ org\schorn\ella\app\IFile$IReadResponse.class
 org\schorn\ella\app\EllaApp.class
 org\schorn\ella\app\IFile$IAsyncReadResponse.class
 org\schorn\ella\app\IRequestBuilder.class
-org\schorn\ella\app\IFile$AsyncReadRequest.class
 org\schorn\ella\app\ISearch$ISearchResponse.class
 org\schorn\ella\app\ISearch$SearchRequest$Builder.class
 org\schorn\ella\app\ITopic$ISubscribeResponse.class

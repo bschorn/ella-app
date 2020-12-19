@@ -1,10 +1,24 @@
 package org.schorn.ella.app;
 
+import java.nio.charset.Charset;
+import java.nio.file.Path;
+import java.util.function.Supplier;
+
 public interface IFile {
 
+    enum Format {
+        BYTE_ARRAY, // byte[]
+        CHAR_ARRAY, // char[]
+        STRING, // String
+        LINE_LIST, // List<String>
+        LINE_ITERATOR, // Iterator<String>
+        LINE_STREAM; // Stream<String>
+    }
+
     IReadResponse read(ReadRequest readRequest);
-    IAsyncReadResponse asyncRead(AsyncReadRequest asyncReadRequest);
+    IAsyncReadResponse asyncRead(ReadRequest readRequest);
     IWriteResponse write(WriteRequest writeRequest);
+    IAsyncWriteResponse asyncWrite(WriteRequest writeRequest);
 
     /**
      *
@@ -13,39 +27,54 @@ public interface IFile {
         public static ReadRequest.Builder builder() {
             return new ReadRequest.Builder();
         }
+        private final Path path;
+        private final Charset cs;
+        private final Format format;
         private ReadRequest(Builder builder) {
-
+            this.path = builder.path;
+            this.cs = builder.cs;
+            this.format = builder.format;
         }
 
+        public Path getPath() {
+            return this.path;
+        }
+        public Charset getCharset() {
+            return this.cs;
+        }
+        public Format getFormat() {
+            return this.format;
+        }
+
+        /**
+         *
+         */
         static class Builder implements IRequestBuilder<ReadRequest> {
+            Path path;
+            Charset cs;
+            Format format;
+            Builder what(Path path) {
+                this.path = path;
+                return this;
+            }
+            Builder with(Charset cs) {
+                this.cs = cs;
+                return this;
+            }
+            Builder how(Format format) {
+                this.format = format;
+                return this;
+            }
             @Override
             public ReadRequest build() {
                 return new ReadRequest(this);
             }
         }
     }
-    interface IReadResponse extends IResponse.ISyncResponse {
+    interface IReadResponse<T> extends IResponse.ISyncResponse, Supplier<T> {
     }
-
-    /**
-     *
-     */
-    class AsyncReadRequest implements IRequest {
-        public static AsyncReadRequest.Builder builder() {
-            return new AsyncReadRequest.Builder();
-        }
-        private AsyncReadRequest(Builder builder) {
-
-        }
-
-        static class Builder implements IRequestBuilder<AsyncReadRequest> {
-            @Override
-            public AsyncReadRequest build() {
-                return new AsyncReadRequest(this);
-            }
-        }
-    }
-    interface IAsyncReadResponse extends IResponse.IAsyncResponse {
+    interface IAsyncReadResponse<T> extends IResponse.IAsyncResponse {
+        Supplier<T> getSupplier();
     }
 
     /**
@@ -68,6 +97,8 @@ public interface IFile {
     }
     interface IWriteResponse extends IResponse.ISyncResponse {
     }
+    interface IAsyncWriteResponse extends IResponse.IAsyncResponse {
+    }
 
     /**
      *
@@ -75,17 +106,22 @@ public interface IFile {
     class Default implements IFile {
 
         @Override
-        public IReadResponse read(ReadRequest fileReadRequest) {
+        public IReadResponse read(ReadRequest request) {
             throw new UnsupportedOperationException();
         }
 
         @Override
-        public IAsyncReadResponse asyncRead(AsyncReadRequest asyncReadRequest) {
+        public IAsyncReadResponse asyncRead(ReadRequest request) {
             throw new UnsupportedOperationException();
         }
 
         @Override
         public IWriteResponse write(WriteRequest writeRequest) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public IAsyncWriteResponse asyncWrite(WriteRequest writeRequest) {
             throw new UnsupportedOperationException();
         }
     }

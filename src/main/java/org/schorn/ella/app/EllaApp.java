@@ -59,13 +59,18 @@ public class EllaApp implements ICache, IDBMS, IFile, ISearch, ITopic, IService,
     }
 
     @Override
-    public IAsyncReadResponse asyncRead(AsyncReadRequest request) {
+    public IAsyncReadResponse asyncRead(ReadRequest request) {
         return file.asyncRead(request);
     }
 
     @Override
     public IWriteResponse write(WriteRequest request) {
         return file.write(request);
+    }
+
+    @Override
+    public IAsyncWriteResponse asyncWrite(WriteRequest request) {
+        return file.asyncWrite(request);
     }
 
     @Override

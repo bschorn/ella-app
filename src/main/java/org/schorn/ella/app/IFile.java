@@ -1,19 +1,13 @@
-package org.schorn.ella.app;
+ package org.schorn.ella.app;
 
 import java.nio.charset.Charset;
 import java.nio.file.Path;
+import java.util.Iterator;
+import java.util.List;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 public interface IFile {
-
-    enum Format {
-        BYTE_ARRAY, // byte[]
-        CHAR_ARRAY, // char[]
-        STRING, // String
-        LINE_LIST, // List<String>
-        LINE_ITERATOR, // Iterator<String>
-        LINE_STREAM; // Stream<String>
-    }
 
     IReadResponse read(ReadRequest readRequest);
     IAsyncReadResponse asyncRead(ReadRequest readRequest);
@@ -29,11 +23,9 @@ public interface IFile {
         }
         private final Path path;
         private final Charset cs;
-        private final Format format;
         private ReadRequest(Builder builder) {
             this.path = builder.path;
             this.cs = builder.cs;
-            this.format = builder.format;
         }
 
         public Path getPath() {
@@ -42,27 +34,19 @@ public interface IFile {
         public Charset getCharset() {
             return this.cs;
         }
-        public Format getFormat() {
-            return this.format;
-        }
 
         /**
          *
          */
-        static class Builder implements IRequestBuilder<ReadRequest> {
+        static public class Builder implements IRequestBuilder<ReadRequest> {
             Path path;
             Charset cs;
-            Format format;
-            Builder what(Path path) {
+            public Builder what(Path path) {
                 this.path = path;
                 return this;
             }
-            Builder with(Charset cs) {
+            public Builder with(Charset cs) {
                 this.cs = cs;
-                return this;
-            }
-            Builder how(Format format) {
-                this.format = format;
                 return this;
             }
             @Override
@@ -71,10 +55,12 @@ public interface IFile {
             }
         }
     }
-    interface IReadResponse<T> extends IResponse.ISyncResponse, Supplier<T> {
+    interface IReadResponse extends IResponse.ISyncResponse {
+        byte[] toByteArray();
+        List<String> asList();
     }
-    interface IAsyncReadResponse<T> extends IResponse.IAsyncResponse {
-        Supplier<T> getSupplier();
+    interface IAsyncReadResponse extends IResponse.IAsyncResponse {
+        Supplier<String> supplier();
     }
 
     /**

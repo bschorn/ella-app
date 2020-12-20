@@ -1,7 +1,10 @@
 package org.schorn.ella.app;
 
+import java.nio.charset.StandardCharsets;
+
 /**
- *
+ *  The Ella App class is an amalgamation of all the Interfaces.
+ *  Each interface will have its own instance but can share implementations.
  */
 public class EllaApp implements ICache, IDBMS, IFile, ISearch, ITopic, IService, ICommitLog {
 
@@ -53,6 +56,19 @@ public class EllaApp implements ICache, IDBMS, IFile, ISearch, ITopic, IService,
         return dbms.asyncPersist(request);
     }
 
+    /**
+     *
+     *  EllaApp ellaApp = new EllaApp();
+     *  IFile.ReadRequest fileReadRequest = IFile.ReadRequest.builder()
+     *          .what("tsdata/2020/10/04/ts-20200104.dat")
+     *          .with(StandardCharsets.UTF_8)
+     *          .build();
+     *  IFile.IReadResponse response = ellaApp.read(fileReadRequest);
+     *  if (response.getException().isPresent()) {
+     *      throw response.getException().get();
+     *  }
+     *  String tsdata = response.toString();
+     */
     @Override
     public IReadResponse read(ReadRequest request) {
         return file.read(request);

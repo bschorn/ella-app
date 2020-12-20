@@ -5,7 +5,6 @@ org\schorn\ella\app\ICommitLog$AsyncTailRequest.class
 org\schorn\ella\app\IDBMS$AsyncPersistRequest$Builder.class
 org\schorn\ella\app\IDBMS$IPersistResponse.class
 org\schorn\ella\app\IDBMS$PersistRequest$Builder.class
-org\schorn\ella\app\IFile$Format.class
 org\schorn\ella\app\IFile$WriteRequest.class
 org\schorn\ella\app\IService$ServiceRequest.class
 org\schorn\ella\app\ICommitLog$AppendRequest$Builder.class

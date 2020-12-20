@@ -2,7 +2,6 @@ package org.schorn.ella.app;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
-import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.stream.Collectors;
 
@@ -12,6 +11,7 @@ public class TestFile implements Callable<Boolean> {
 
     public static void main(String[] args) {
         try {
+            System.setProperty(IFile.class.getName(), "org.schorn.ella.aws.file.s3.S3File");
             EllaApp ellaApp = new EllaApp();
             TestFile testFile = new TestFile(ellaApp);
             testFile.setWorkingDir(args[0]);
@@ -42,28 +42,26 @@ public class TestFile implements Callable<Boolean> {
         IFile.ReadRequest fileReadRequest = IFile.ReadRequest.builder()
                 .what(path)
                 .with(StandardCharsets.UTF_8)
-                .how(IFile.Format.STRING)
                 .build();
-        IFile.IReadResponse<String> response = this.ellaApp.read(fileReadRequest);
+        IFile.IReadResponse response = this.ellaApp.read(fileReadRequest);
         if (response.getException().isPresent()) {
             throw response.getException().get();
         } else {
             System.out.println(String.format("readFileAsString(%s):\n%s", path.toString(),
-                    response.get()));
+                    response.toString()));
         }
     }
     public void readFileAsLines(Path path) throws Exception {
         IFile.ReadRequest fileReadRequest = IFile.ReadRequest.builder()
                 .what(path)
                 .with(StandardCharsets.UTF_8)
-                .how(IFile.Format.LINE_LIST)
                 .build();
-        IFile.IReadResponse<List<String>> response = this.ellaApp.read(fileReadRequest);
+        IFile.IReadResponse response = this.ellaApp.read(fileReadRequest);
         if (response.getException().isPresent()) {
             throw response.getException().get();
         } else {
             System.out.println(String.format("readFileAsLines(%s):\n%s", path.toString(),
-                    response.get().stream().collect(Collectors.joining(System.lineSeparator()))));
+                    response.asList().stream().collect(Collectors.joining(System.lineSeparator()))));
         }
     }
 
